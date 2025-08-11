@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.devsuperior.ex1.service.OrderService;
 
+import java.util.Locale;
+
 @SpringBootApplication
 public class Ex1Application implements CommandLineRunner {
 
@@ -16,6 +18,7 @@ public class Ex1Application implements CommandLineRunner {
 	}
 
 	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
 		SpringApplication.run(Ex1Application.class, args);
 	}
 
@@ -23,9 +26,9 @@ public class Ex1Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		Order order = new Order();
-		order.setCode(1034);
-		order.setBasic(150.0);
-		order.setDiscount(20.0);
+		order.setCode(2282);
+		order.setBasic(800.00);
+		order.setDiscount(10.0);
 
 		System.out.printf("Pedido código %d%n", order.getCode());
 		System.out.printf("Valor total: R$ %.2f%n", orderService.total(order));
